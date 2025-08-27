@@ -1,0 +1,86 @@
+INVOICE
+
+INVOICE #: INV-2024-001234
+Date: March 31, 2024
+Due Date: April 30, 2024
+
+FROM:
+TechSolutions Inc.
+123 Business Park Drive, Suite 500
+San Francisco, CA 94105
+Phone: (415) 555-1234
+Email: billing@techsolutions.com
+Website: www.techsolutions.com
+Tax ID: 12-3456789
+
+TO:
+Jennifer Marie Thompson
+456 Corporate Plaza, Floor 8
+Chicago, IL 60601
+Phone: (312) 555-5678
+Email: jennifer.thompson@megacorp.com
+Purchase Order: PO-2024-789
+
+SERVICES RENDERED:
+
+Item #    Description                                    Qty    Rate      Amount
+001       Software Development - Phase 1                80 hrs  $125.00   $10,000.00
+002       Database Design & Implementation              40 hrs  $150.00   $6,000.00
+003       User Interface Development                    60 hrs  $110.00   $6,600.00
+004       Testing & Quality Assurance                   30 hrs  $95.00    $2,850.00
+005       Project Management                            25 hrs  $120.00   $3,000.00
+006       Travel Expenses - Client Meetings             -      -         $450.00
+007       Software Licenses (Annual)                    1       $2,500.00 $2,500.00
+
+SUBTOTAL:                                                                 $31,400.00
+Sales Tax (8.5%):                                                        $2,669.00
+TOTAL:                                                                   $34,069.00
+
+PAYMENT TERMS:
+Net 30 days
+Late payment fee: 1.5% per month
+Payment methods accepted: Check, Wire Transfer, Credit Card
+
+BANKING INFORMATION:
+Bank: Wells Fargo
+Account Name: TechSolutions Inc.
+Account Number: 9876543210
+Routing Number: 121000248
+SWIFT Code: WFBIUS6S
+Reference: INV-2024-001234
+
+CREDIT CARD PAYMENT:
+To pay by credit card, call (415) 555-1234 ext. 2
+Visa, MasterCard, American Express accepted
+
+PROJECT DETAILS:
+Project Name: MegaCorp CRM System Implementation
+Project Manager: Michael Chen
+Technical Lead: Sarah Williams
+Start Date: January 15, 2024
+Completion Date: March 30, 2024
+
+DELIVERABLES:
+- Custom CRM software application
+- Database schema and documentation
+- User training materials
+- 6 months of technical support
+
+WARRANTY:
+All software includes 90-day warranty from date of delivery.
+Extended support available at $150/hour.
+
+DISPUTES:
+Any disputes must be submitted in writing within 30 days of invoice date.
+
+CONTACT INFORMATION:
+For billing questions: billing@techsolutions.com
+For technical support: support@techsolutions.com
+For project inquiries: projects@techsolutions.com
+
+THANK YOU FOR YOUR BUSINESS!
+
+TechSolutions Inc.
+"Delivering innovative solutions for tomorrow's challenges"
+
+This invoice contains confidential business information.

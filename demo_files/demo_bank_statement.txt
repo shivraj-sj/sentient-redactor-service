@@ -1,0 +1,78 @@
+ACCOUNT STATEMENT
+
+BANK OF AMERICA
+Account Statement Period: March 1, 2024 - March 31, 2024
+
+ACCOUNT INFORMATION:
+Account Holder: David Michael Rodriguez
+Account Number: 1234-5678-9012-3456
+Routing Number: 026009593
+Account Type: Premier Checking
+Statement Date: March 31, 2024
+
+CONTACT INFORMATION:
+Address: 5678 Maple Avenue, Suite 200, Los Angeles, CA 90210
+Phone: (310) 555-9876
+Email: david.rodriguez@email.com
+SSN: ***-**-5678
+
+ACCOUNT SUMMARY:
+Beginning Balance: $12,450.67
+Total Deposits: $8,750.00
+Total Withdrawals: $6,234.89
+Ending Balance: $14,965.78
+Available Balance: $14,965.78
+
+TRANSACTION HISTORY:
+
+Date        Description                    Reference    Amount     Balance
+03/01/2024  Beginning Balance                                    $12,450.67
+03/02/2024  Direct Deposit - Salary      ABC Corp      +$4,250.00 $16,700.67
+03/03/2024  ATM Withdrawal - 123 Main St  ATM123456    -$200.00   $16,500.67
+03/05/2024  Check #1001 - Rent Payment    Check1001    -$1,800.00 $14,700.67
+03/07/2024  Online Transfer to Savings    XFER001      -$500.00   $14,200.67
+03/08/2024  Grocery Store Purchase        POS987654    -$127.45   $14,073.22
+03/10/2024  Gas Station - Shell           POS456789    -$45.67    $14,027.55
+03/12/2024  Direct Deposit - Bonus        ABC Corp     +$2,500.00 $16,527.55
+03/15/2024  Utility Bill Payment          UTIL001      -$89.23    $16,438.32
+03/17/2024  Restaurant - Olive Garden     POS123456    -$78.90    $16,359.42
+03/20/2024  Online Purchase - Amazon      POS789012    -$156.78   $16,202.64
+03/22/2024  ATM Deposit - Cash            ATM789012    +$1,000.00 $17,202.64
+03/25/2024  Insurance Payment              INS001       -$234.56   $16,968.08
+03/27/2024  Pharmacy - CVS                POS345678    -$45.67    $16,922.41
+03/29/2024  Direct Deposit - Salary       ABC Corp     +$2,000.00 $18,922.41
+03/30/2024  Credit Card Payment            CC001        -$1,200.00 $17,722.41
+03/31/2024  Service Charge - Monthly Fee   FEE001       -$12.00   $17,710.41
+03/31/2024  Interest Earned                INT001       +$255.37   $17,965.78
+
+SAVINGS ACCOUNT LINKED:
+Account Number: 9876-5432-1098-7654
+Current Balance: $25,430.12
+
+CREDIT CARD INFORMATION:
+Card Number: 4111-1111-1111-1111
+Credit Limit: $15,000.00
+Available Credit: $8,234.56
+Payment Due Date: April 15, 2024
+Minimum Payment: $150.00
+
+ONLINE BANKING:
+Username: drodriguez
+Last Login: March 31, 2024 at 2:30 PM
+Security Questions: Mother's maiden name, First pet's name
+
+FRAUD ALERTS:
+- No suspicious activity detected during this period
+- All transactions verified as legitimate
+
+IMPORTANT NOTICES:
+- Your account is enrolled in overdraft protection
+- Mobile banking app available for download
+- Paperless statements available - enroll online
+
+For questions about this statement, contact:
+Customer Service: 1-800-432-1000
+Hours: 24/7
+Reference Number: STMT-2024-03-31-001
+
+This statement contains confidential financial information. Please shred when no longer needed.
