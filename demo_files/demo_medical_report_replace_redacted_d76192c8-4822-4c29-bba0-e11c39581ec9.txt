@@ -1,0 +1,75 @@
+<ORGANIZATION>:
+Name: <PERSON>
+Date of Birth: <DATE_TIME>Address: <DATE_TIME> Oak Street, <LOCATION>, <LOCATION>, NY <DATE_TIME>
+Phone: <PHONE_NUMBER>
+Email: <EMAIL_ADDRESS>
+Emergency Contact: <PERSON>, <PHONE_NUMBER>
+
+Medical Record Number: MR-<PHONE_NUMBER>
+Insurance: Blue Cross Blue Shield, Policy #BCBS-<US_DRIVER_LICENSE>-01
+Group Number: <DATE_TIME>
+
+Chief Complaint:
+Patient presents with persistent chest pain and shortness of breath for <DATE_TIME>.
+
+History of Present Illness:
+Ms. <PERSON> is a <DATE_TIME> female with no significant past medical history who began experiencing intermittent chest pain <DATE_TIME>. The pain is described as pressure-like, radiating to the left arm and jaw. Associated symptoms include shortness of breath, fatigue, and occasional dizziness. Pain is exacerbated by physical activity and relieved with rest.
+
+Past Medical History:
+- Hypertension (diagnosed <DATE_TIME>)
+- Seasonal allergies
+- No previous surgeries
+
+Current Medications:
+- Lisinopril 10mg <DATE_TIME>
+- Claritin 10mg as needed
+
+Physical Examination:
+Vital Signs:
+- Blood Pressure: 145/95 mmHg
+- Heart Rate: 88 bpm
+- Respiratory Rate: 18/min
+- Temperature: 98.6°F
+- Oxygen Saturation: 96% on room air
+
+Cardiovascular: Regular rate and rhythm, no murmurs, gallops, or rubs
+Respiratory: Clear to auscultation bilaterally
+Abdomen: Soft, non-tender, non-distended
+
+<NRP> Tests:
+<ORGANIZATION>: Normal sinus rhythm, no acute changes
+Chest X-ray: Normal cardiac silhouette, clear lung fields
+Troponin: 0.02 ng/mL (normal <0.04)
+<PERSON> Count: WBC 7.2, <PERSON>, Plt 245
+
+Assessment:
+1. Atypical chest pain, likely musculoskeletal in origin
+2. Hypertension, uncontrolled
+3. Rule out coronary artery disease
+
+Plan:
+1. Schedule stress test within <DATE_TIME>
+2. Increase Lisinopril to 20mg <DATE_TIME>
+3. Follow up in <DATE_TIME>
+4. Return to emergency department if chest pain worsens or new symptoms develop
+
+Prescribed Medications:
+- Lisinopril 20mg tablet, 1 tablet <DATE_TIME>
+- Nitroglycerin 0.4mg sublingual tablets, 1 tablet as needed for chest pain
+
+Dietary Recommendations:
+- Low sodium diet (<2000mg <DATE_TIME>)
+- Heart-healthy diet with emphasis on fruits, vegetables, and lean proteins
+
+Activity Restrictions:
+- Avoid heavy lifting and strenuous exercise until stress test completed
+- Walking and light activities permitted
+
+Follow-up:
+Appointment scheduled for <DATE_TIME> at <DATE_TIME> with Dr. <PERSON>
+
+Physician: Dr. <PERSON>, <LOCATION>
+License Number: NY-<US_DRIVER_LICENSE>
+Date: <DATE_TIME>
+
+This report contains confidential patient information protected by HIPAA regulations.

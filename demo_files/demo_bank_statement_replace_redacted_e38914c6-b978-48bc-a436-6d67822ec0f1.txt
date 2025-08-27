@@ -1,0 +1,74 @@
+ACCOUNT <ORGANIZATION>: <DATE_TIME>
+
+ACCOUNT INFORMATION:
+Account Holder: <PERSON>
+Account Number: <DATE_TIME>
+Routing Number: <PHONE_NUMBER>
+Account Type: Premier Checking
+Statement Date: <DATE_TIME>
+
+CONTACT INFORMATION:
+Address: 5678 Maple Avenue, Suite 200, <LOCATION>, <DATE_TIME>
+Phone: <PHONE_NUMBER>
+Email: <EMAIL_ADDRESS>
+<ORGANIZATION>: ***-**-5678
+
+ACCOUNT SUMMARY:
+Beginning Balance: $12,450.67
+Total Deposits: $8,750.00
+Total Withdrawals: $6,234.89
+Ending Balance: $14,965.78
+Available Balance: $14,965.78
+
+TRANSACTION HISTORY:
+
+Date        Description                    Reference    Amount     Balance
+<DATE_TIME>  Beginning Balance                                    $12,450.67
+<DATE_TIME>  <ORGANIZATION><ORGANIZATION>+$<PERSON> $16,700.67
+<DATE_TIME>  <PERSON> Main St  ATM123456    -$200.00   $16,500.67
+<DATE_TIME>  Check #1001 - Rent Payment    Check1001    -$1,800.00 $14,700.67
+<DATE_TIME>  <PERSON> to Savings    XFER001      -$500.00   $14,200.67
+<DATE_TIME>  Grocery Store Purchase        POS987654    -$127.45   $14,073.22
+<DATE_TIME>  Gas Station - Shell           POS456789    -$45.67    $14,027.55
+<ORGANIZATION><ORGANIZATION>+$2,500.00 $16,527.55
+<DATE_TIME>  Utility Bill Payment          UTIL001      -$89.23    $16,438.32
+<DATE_TIME>  Restaurant - Olive Garden     POS123456    -$78.90    $16,359.42
+<DATE_TIME>  Online Purchase - Amazon      POS789012    -$156.78   $16,202.64
+<DATE_TIME>  <ORGANIZATION>    +$1,000.00 $17,202.64
+<DATE_TIME>  Insurance Payment              INS001       -$234.56   $16,968.08
+<DATE_TIME>  Pharmacy - CVS                POS345678    -$45.67    $16,922.41
+<DATE_TIME>  <ORGANIZATION>+$2,000.00 $18,922.41
+<DATE_TIME>  Credit Card Payment            CC001        -$1,200.00 $17,722.41
+<DATE_TIME>  Service Charge - Monthly Fee   FEE001       -$12.00   $17,710.41
+<DATE_TIME>  Interest Earned                INT001       +$255.37   $17,965.78
+
+SAVINGS ACCOUNT <PERSON>:
+Account Number: <DATE_TIME>
+Current Balance: $25,430.12
+
+CREDIT CARD INFORMATION:
+Card Number: <CREDIT_CARD>
+<ORGANIZATION>: $15,000.00
+Available Credit: $8,234.56
+Payment Due Date: <DATE_TIME>: $150.00
+
+ONLINE BANKING:
+Username: drodriguez
+Last Login: <DATE_TIME> at <DATE_TIME>
+Security Questions: Mother's maiden name, <ORGANIZATION> name
+
+FRAUD ALERTS:
+- No suspicious activity detected during this period
+- All transactions verified as legitimate
+
+IMPORTANT NOTICES:
+- Your account is enrolled in overdraft protection
+- Mobile banking app available for download
+- Paperless statements available - enroll online
+
+For questions about this statement, contact:
+Customer Service: <PHONE_NUMBER>
+Hours: 24/7
+Reference Number: STMT-<DATE_TIME>-001
+
+This statement contains confidential financial information. Please shred when no longer needed.

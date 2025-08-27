@@ -1,0 +1,79 @@
+MEDICAL REPORT
+
+Patient Information:
+Name: Sarah Elizabeth Johnson
+Date of Birth: March 15, 1987
+Address: 1234 Oak Street, Apt 5B, New York, NY 10001
+Phone: (212) 555-0123
+Email: sarah.johnson@email.com
+Emergency Contact: Michael Johnson, (212) 555-0124
+
+Medical Record Number: MR-2024-847392
+Insurance: Blue Cross Blue Shield, Policy #BCBS-847392-01
+Group Number: 123456
+
+Chief Complaint:
+Patient presents with persistent chest pain and shortness of breath for the past 3 weeks.
+
+History of Present Illness:
+Ms. Johnson is a 37-year-old female with no significant past medical history who began experiencing intermittent chest pain approximately 3 weeks ago. The pain is described as pressure-like, radiating to the left arm and jaw. Associated symptoms include shortness of breath, fatigue, and occasional dizziness. Pain is exacerbated by physical activity and relieved with rest.
+
+Past Medical History:
+- Hypertension (diagnosed 2020)
+- Seasonal allergies
+- No previous surgeries
+
+Current Medications:
+- Lisinopril 10mg daily
+- Claritin 10mg as needed
+
+Physical Examination:
+Vital Signs:
+- Blood Pressure: 145/95 mmHg
+- Heart Rate: 88 bpm
+- Respiratory Rate: 18/min
+- Temperature: 98.6°F
+- Oxygen Saturation: 96% on room air
+
+Cardiovascular: Regular rate and rhythm, no murmurs, gallops, or rubs
+Respiratory: Clear to auscultation bilaterally
+Abdomen: Soft, non-tender, non-distended
+
+Diagnostic Tests:
+ECG: Normal sinus rhythm, no acute changes
+Chest X-ray: Normal cardiac silhouette, clear lung fields
+Troponin: 0.02 ng/mL (normal <0.04)
+Complete Blood Count: WBC 7.2, Hgb 13.8, Plt 245
+
+Assessment:
+1. Atypical chest pain, likely musculoskeletal in origin
+2. Hypertension, uncontrolled
+3. Rule out coronary artery disease
+
+Plan:
+1. Schedule stress test within 1 week
+2. Increase Lisinopril to 20mg daily
+3. Follow up in 2 weeks
+4. Return to emergency department if chest pain worsens or new symptoms develop
+
+Prescribed Medications:
+- Lisinopril 20mg tablet, 1 tablet daily
+- Nitroglycerin 0.4mg sublingual tablets, 1 tablet as needed for chest pain
+
+Dietary Recommendations:
+- Low sodium diet (<2000mg daily)
+- Heart-healthy diet with emphasis on fruits, vegetables, and lean proteins
+
+Activity Restrictions:
+- Avoid heavy lifting and strenuous exercise until stress test completed
+- Walking and light activities permitted
+
+Follow-up:
+Appointment scheduled for March 28, 2024 at 2:00 PM with Dr. Robert Chen
+
+Physician: Dr. Robert Chen, MD
+License Number: NY-123456
+Date: March 14, 2024
+Time: 3:45 PM
+
+This report contains confidential patient information protected by HIPAA regulations.
