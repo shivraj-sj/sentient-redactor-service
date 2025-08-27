@@ -108,21 +108,12 @@ def redact():
         text = data.get('text', '')
         strategy = data.get('strategy', 'replace')  # Default to replace strategy
         
-        # Comprehensive list of entities to detect
-        entities_to_detect = [
-            "PERSON", "EMAIL_ADDRESS", "PHONE_NUMBER", "CREDIT_CARD", "US_SSN", 
-            "IP_ADDRESS", "LOCATION", "DATE_TIME", "URL", "US_DRIVER_LICENSE",
-            "US_PASSPORT", "UK_NHS", "US_BANK_NUMBER", "NRP", "MEDICAL_LICENSE",
-            "US_ITIN", "US_DEA", "US_NPI", "AU_ABN", "AU_ACN", "AU_TFN", "AU_MEDICARE",
-            "CA_CPP", "CA_SIN", "IN_AADHAAR", "IN_PAN", "SG_NRIC", "ZA_ID", "PL_PESEL"
-        ]
         
         # Analyze the text with comprehensive entity detection
         results = analyzer.analyze(
             text=text, 
             language="en",
-            entities=entities_to_detect,
-            score_threshold=0.3  # Lower threshold to catch more entities
+            score_threshold=0.4  # Lower threshold to catch more entities
         )
         
         # Get anonymization configuration based on strategy
