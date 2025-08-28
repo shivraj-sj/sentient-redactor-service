@@ -337,8 +337,8 @@ def list_available_files():
 def main():
     """Main CLI function"""
     parser = argparse.ArgumentParser(description='Sentient TEE Redactor CLI Client')
-    parser.add_argument('--url', default='http://localhost:3000', 
-                       help='Base URL of the redactor service (default: http://localhost:3000)')
+    parser.add_argument('--url', default='http://localhost:10003', 
+                       help='Base URL of the redactor service (default: http://localhost:10003)')
     parser.add_argument('--file', help='File to be redacted')
     parser.add_argument('--strategy', choices=['replace', 'mask', 'fake'], default='replace',
                        help='Redaction strategy (default: replace)')
