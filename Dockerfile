@@ -2,7 +2,7 @@
 # Designed for AWS Nitro Enclaves
 
 # Stage 1: Build Rust application
-FROM public.ecr.aws/amazonlinux/amazonlinux:2023 as rust_builder
+FROM public.ecr.aws/amazonlinux/amazonlinux:2023 AS rust_builder
 
 ENV SHELL="/usr/bin/env bash"
 
@@ -19,16 +19,16 @@ RUN curl -fsSL https://sh.rustup.rs | bash -is -- -y --verbose --no-modify-path 
 # Specify path relative to the build context
 WORKDIR /app-builder
 
-# Option 1: Use remote repository (uncomment the line below)
-# RUN git clone https://github.com/shivraj-sj/sentient-redactor-service.git
-# Option 2: Use local code (copy from build context)
-COPY . /app-builder
+# Clone from GitHub directly into workdir
+RUN git clone https://github.com/shivraj-sj/sentient-redactor-service.git .
+# Then copy local files over the cloned repository
+# COPY . /app-builder/
 
 # Build the Rust application
 RUN cargo build --release
 
 # Stage 2: Final runtime image
-FROM public.ecr.aws/amazonlinux/amazonlinux:2023 as runtime
+FROM public.ecr.aws/amazonlinux/amazonlinux:2023 AS runtime
 
 ENV SHELL="/usr/bin/env bash"
 ENV RUST_LOG="debug"
