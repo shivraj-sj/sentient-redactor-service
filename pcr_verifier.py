@@ -99,3 +99,54 @@ def verify_pcrs(expected: dict, actual: dict) -> bool:
     else:
         print_colored(f"\n✅ Verification PASSED: All {len(expected)} PCRs match", Colors.GREEN + Colors.BOLD)
         return True
+
+def print_pcrs_summary(expected: dict, actual: dict):
+    """Print a summary of PCRs comparison"""
+    print_colored("\n📊 PCR Summary", Colors.BOLD + Colors.CYAN)
+    print_colored("=" * 30, Colors.CYAN)
+    
+    print_colored(f"Expected PCRs: {len(expected)}", Colors.BLUE)
+    print_colored(f"Actual PCRs:   {len(actual)}", Colors.BLUE)
+    
+    if expected and actual:
+        print_colored("\nExpected PCRs:", Colors.YELLOW)
+        for pcr_num, value in expected.items():
+            print_colored(f"  PCR {pcr_num}: {value}", Colors.YELLOW)
+        
+        print_colored("\nActual PCRs:", Colors.GREEN)
+        for pcr_num, value in actual.items():
+            print_colored(f"  PCR {pcr_num}: {value}", Colors.GREEN)
+def main():
+    """Main function to load, fetch, and verify PCRs"""
+    server_url = "https://localhost:8443"
+    pcr_file = "expected_pcrs.json"
+    
+    print_colored("🔐 PCR Verification for AWS Nitro Enclaves", Colors.BOLD + Colors.CYAN)
+    print_colored("=" * 50, Colors.CYAN)
+    
+    # Load expected PCRs
+    print_colored("\n📁 Loading expected PCRs...", Colors.CYAN)
+    expected_pcrs = load_pcrs_from_file(pcr_file)
+    if not expected_pcrs:
+        print_colored("❌ No expected PCRs loaded", Colors.RED)
+        return
+    
+    print_colored(f"✅ Loaded {len(expected_pcrs)} expected PCRs from {pcr_file}", Colors.GREEN)
+    
+    # Get current PCRs from server
+    current_pcrs = get_pcrs_from_server(server_url)
+    if not current_pcrs:
+        print_colored("❌ Failed to get PCRs from server", Colors.RED)
+        return
+    
+    # Print summary
+    print_pcrs_summary(expected_pcrs, current_pcrs)
+    
+    # Verify PCRs
+    if verify_pcrs(expected_pcrs, current_pcrs):
+        print_colored("\n🎉 PCR verification completed successfully!", Colors.GREEN + Colors.BOLD)
+    else:
+        print_colored("\n💥 PCR verification failed!", Colors.RED + Colors.BOLD)
+
+if __name__ == "__main__":
+    main()
