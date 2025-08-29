@@ -6,6 +6,10 @@ Simple PCR Verifier for AWS Nitro Enclaves
 import requests
 import json
 import os
+import urllib3
+
+# Disable SSL warnings for self-signed certificates
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # ANSI color codes for highlighting
 class Colors:
@@ -38,11 +42,14 @@ def get_pcrs_from_server(server_url: str) -> dict:
     """Get current PCRs from attestation server using verify_pcrs endpoint"""
     try:
         print_colored("🔍 Fetching PCRs from attestation server...", Colors.CYAN)
+        print_colored("⚠️  SSL verification disabled for self-signed certificates", Colors.YELLOW)
         
         # Send empty PCRs to get actual PCRs from server
+        # Disable SSL verification for self-signed certificates in development
         response = requests.post(f"{server_url}/verify_pcrs/", 
                                json={"pcrs": ""}, 
-                               timeout=10)
+                               timeout=10,
+                               verify=False)
         
         if response.status_code == 200:
             # Extract PCRs from response text
@@ -53,12 +60,30 @@ def get_pcrs_from_server(server_url: str) -> dict:
                 end = text.find("\n", start)
                 pcrs_text = text[start:end].strip()
                 
-                # Parse "0: hexvalue, 1: hexvalue" format
+                # Debug: show the raw PCR text
+                print_colored(f"🔍 Raw PCR text: {repr(pcrs_text)}", Colors.BLUE)
+                
+                # Parse the PCR text - it starts with 'ent: "0: ...' format
                 pcrs = {}
-                for pair in pcrs_text.split(','):
+                
+                # Remove the 'ent: "' prefix and trailing '"'
+                if pcrs_text.startswith('ent: "') and pcrs_text.endswith('"'):
+                    pcrs_text = pcrs_text[6:-1]  # Remove 'ent: "' and '"'
+                
+                # Replace escaped newlines with actual newlines and clean up
+                pcrs_text_clean = pcrs_text.replace('\\n', '\n').replace('\n', ' ').replace('  ', ' ')
+                
+                # Split by comma and parse each PCR
+                for pair in pcrs_text_clean.split(','):
+                    pair = pair.strip()
                     if ':' in pair:
-                        num, value = pair.strip().split(':', 1)
-                        pcrs[num.strip()] = value.strip()
+                        parts = pair.split(':', 1)
+                        if len(parts) == 2:
+                            num = parts[0].strip()
+                            value = parts[1].strip()
+                            # Remove any quotes from the value
+                            value = value.strip('"')
+                            pcrs[num] = value
                 
                 print_colored(f"✅ Successfully retrieved {len(pcrs)} PCRs", Colors.GREEN)
                 return pcrs
