@@ -34,6 +34,44 @@ def load_pcrs_from_file(filename: str) -> dict:
         print_colored(f"Error loading PCRs from {filename}: {e}", Colors.RED)
         return {}
 
+def get_pcrs_from_server(server_url: str) -> dict:
+    """Get current PCRs from attestation server using verify_pcrs endpoint"""
+    try:
+        print_colored("🔍 Fetching PCRs from attestation server...", Colors.CYAN)
+        
+        # Send empty PCRs to get actual PCRs from server
+        response = requests.post(f"{server_url}/verify_pcrs/", 
+                               json={"pcrs": ""}, 
+                               timeout=10)
+        
+        if response.status_code == 200:
+            # Extract PCRs from response text
+            text = response.text
+            if "PCRs retrieved from enclave's attestation document:" in text:
+                # Find PCRs section and parse
+                start = text.find("PCRs retrieved from enclave's attestation document:") + 47
+                end = text.find("\n", start)
+                pcrs_text = text[start:end].strip()
+                
+                # Parse "0: hexvalue, 1: hexvalue" format
+                pcrs = {}
+                for pair in pcrs_text.split(','):
+                    if ':' in pair:
+                        num, value = pair.strip().split(':', 1)
+                        pcrs[num.strip()] = value.strip()
+                
+                print_colored(f"✅ Successfully retrieved {len(pcrs)} PCRs", Colors.GREEN)
+                return pcrs
+            else:
+                print_colored("❌ PCRs not found in server response", Colors.RED)
+                return {}
+        else:
+            print_colored(f"❌ Server error: {response.status_code}", Colors.RED)
+            return {}
+    except Exception as e:
+        print_colored(f"❌ Error getting PCRs from server: {e}", Colors.RED)
+        return {}
+
 def verify_pcrs(expected: dict, actual: dict) -> bool:
     """Verify that expected PCRs match actual PCRs"""
     if not expected or not actual:
