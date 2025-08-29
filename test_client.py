@@ -14,6 +14,13 @@ from cryptography.hazmat.primitives import hashes, serialization
 from cryptography.hazmat.primitives.asymmetric import rsa, padding
 from cryptography.hazmat.primitives.ciphers.aead import ChaCha20Poly1305
 import os
+import urllib3
+
+# Disable SSL warnings for self-signed certificates
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+# Import PCR verification functions
+from pcr_verifier import load_pcrs_from_file, get_pcrs_from_server, verify_pcrs
 
 # ANSI color codes for highlighting
 class Colors:
@@ -272,6 +279,45 @@ def download_file(base_url, file_id, filename=None):
         print_colored(f"❌ Download error: {e}", Colors.RED)
         return None
 
+def verify_pcrs_before_handshake(base_url: str) -> bool:
+    """Verify PCRs before handshake and return True if verification passes or PCRs not available"""
+    try:
+        print_colored("\n🔐 PCR Verification (Pre-handshake)", Colors.BOLD + Colors.CYAN)
+        print_colored("=" * 50, Colors.CYAN)
+        
+        # Load expected PCRs
+        expected_pcrs = load_pcrs_from_file("expected_pcrs.json")
+        if not expected_pcrs:
+            print_colored("⚠️  No expected PCRs found - skipping PCR verification", Colors.YELLOW)
+            return True
+        
+        # Convert redactor service URL to attestation server URL
+        # Redactor service: http://localhost:10003 -> Attestation server: https://localhost:8443
+        attestation_url = base_url.replace("http://", "https://").replace(":10003", ":8443")
+        print_colored(f"🔍 Connecting to attestation server: {attestation_url}", Colors.CYAN)
+        
+        # Get current PCRs from attestation server
+        current_pcrs = get_pcrs_from_server(attestation_url)
+        if not current_pcrs:
+            print_colored("⚠️  Could not retrieve PCRs from attestation server - skipping PCR verification", Colors.YELLOW)
+            return True
+        
+        # Verify PCRs
+        verification_passed = verify_pcrs(expected_pcrs, current_pcrs)
+        
+        if not verification_passed:
+            print_colored("\n⚠️  WARNING: PCR verification failed!", Colors.RED + Colors.BOLD)
+            print_colored("   The enclave may not be running the expected code.", Colors.RED)
+            print_colored("   Proceeding with handshake anyway...", Colors.YELLOW)
+            return False
+        else:
+            print_colored("\n✅ PCR verification passed - enclave is trusted", Colors.GREEN + Colors.BOLD)
+            return True
+            
+    except Exception as e:
+        print_colored(f"⚠️  PCR verification error: {e} - continuing with handshake", Colors.YELLOW)
+        return True
+
 def verify_redaction(filename, expected_file):
     """Verify redaction by comparing with expected file"""
     if not filename:
@@ -350,6 +396,9 @@ def main():
     
     print_colored("🔐 Sentient TEE Redactor CLI Client", Colors.BOLD + Colors.CYAN)
     print_colored("=" * 50, Colors.CYAN)
+    
+    # Verify PCRs before handshake
+    pcr_verification_passed = verify_pcrs_before_handshake(base_url)
     
     # Test handshake
     server_public_key = test_handshake(base_url)
