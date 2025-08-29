@@ -279,11 +279,16 @@ def download_file(base_url, file_id, filename=None):
         print_colored(f"❌ Download error: {e}", Colors.RED)
         return None
 
-def verify_pcrs_before_handshake(base_url: str) -> bool:
+def verify_pcrs_before_handshake(base_url: str, skip_pcr_check: bool = False, strict_pcr: bool = False) -> bool:
     """Verify PCRs before handshake and return True if verification passes or PCRs not available"""
     try:
         print_colored("\n🔐 PCR Verification (Pre-handshake)", Colors.BOLD + Colors.CYAN)
         print_colored("=" * 50, Colors.CYAN)
+        
+        # Skip PCR verification if requested
+        if skip_pcr_check:
+            print_colored("⏭️  PCR verification skipped by user request", Colors.YELLOW)
+            return True
         
         # Load expected PCRs
         expected_pcrs = load_pcrs_from_file("expected_pcrs.json")
@@ -308,8 +313,13 @@ def verify_pcrs_before_handshake(base_url: str) -> bool:
         if not verification_passed:
             print_colored("\n⚠️  WARNING: PCR verification failed!", Colors.RED + Colors.BOLD)
             print_colored("   The enclave may not be running the expected code.", Colors.RED)
-            print_colored("   Proceeding with handshake anyway...", Colors.YELLOW)
-            return False
+            
+            if strict_pcr:
+                print_colored("❌ Exiting due to strict PCR verification mode", Colors.RED + Colors.BOLD)
+                return False
+            else:
+                print_colored("   Proceeding with handshake anyway...", Colors.YELLOW)
+                return True  # Return True to allow continuation in default mode
         else:
             print_colored("\n✅ PCR verification passed - enclave is trusted", Colors.GREEN + Colors.BOLD)
             return True
@@ -390,6 +400,10 @@ def main():
                        help='Redaction strategy (default: replace)')
     parser.add_argument('--non-interactive', action='store_true',
                        help='Run in non-interactive mode (use command line arguments only)')
+    parser.add_argument('--skip-pcr-check', action='store_true',
+                       help='Skip PCR verification and proceed with handshake even if PCRs don\'t match')
+    parser.add_argument('--strict-pcr', action='store_true',
+                       help='Exit if PCR verification fails (default: continue with warning)')
     
     args = parser.parse_args()
     base_url = args.url
@@ -398,7 +412,16 @@ def main():
     print_colored("=" * 50, Colors.CYAN)
     
     # Verify PCRs before handshake
-    pcr_verification_passed = verify_pcrs_before_handshake(base_url)
+    pcr_verification_passed = verify_pcrs_before_handshake(
+        base_url, 
+        skip_pcr_check=args.skip_pcr_check, 
+        strict_pcr=args.strict_pcr
+    )
+    
+    # Exit if PCR verification failed in strict mode
+    if not pcr_verification_passed:
+        print_colored("❌ Cannot proceed due to PCR verification failure", Colors.RED)
+        sys.exit(1)
     
     # Test handshake
     server_public_key = test_handshake(base_url)
